@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── Primary SEO ──────────────────────────────────────────────────────── -->
+<title>Lift Tracker — Workout Tracker & PR Logger for iPhone</title>
+<meta name="description" content="Lift Tracker is the iPhone workout app built for serious lifters. Log sets, track PRs automatically, rest timer, and progress charts by muscle group. 14-day free trial.">
+<meta name="keywords" content="workout tracker, iPhone workout app, PR tracker, weight lifting app, gym log, strength training app, progressive overload app, barbell tracker, no subscription workout app">
+<meta name="author" content="Lift Tracker">
+<link rel="canonical" href="https://lifttracker.ca">
+
+<!-- ── Open Graph (Facebook, LinkedIn, iMessage, Slack) ────────────────── -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://lifttracker.ca">
+<meta property="og:title"       content="Lift Tracker — Simple lifting. Serious results.">
+<meta property="og:description" content="The iPhone workout tracker built for serious lifters. Auto PR detection, rest timer, progress charts. 14-day full-access trial.">
+<meta property="og:image"       content="https://lifttracker.ca/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name"   content="Lift Tracker">
+<meta property="og:locale"      content="en_CA">
+
+<!-- ── Twitter / X Card ────────────────────────────────────────────────── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Lift Tracker — Simple lifting. Serious results.">
+<meta name="twitter:description" content="The iPhone workout tracker built for serious lifters. Auto PR detection, rest timer, progress charts. 14-day free trial.">
+<meta name="twitter:image"       content="https://lifttracker.ca/og-image.jpg">
+
+<!-- ── JSON-LD Schema (AEO — surfaces in AI search) ────────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lift Tracker",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "applicationSubCategory": "Fitness",
+  "description": "iPhone workout tracker for serious lifters. Log sets, track personal records automatically, automatic rest timer, and progress charts by muscle group. No subscription required to start — 14-day full-access trial.",
+  "url": "https://lifttracker.ca",
+  "inLanguage": "en",
+  "offers": {
+    "@type": "Offer",
+    "price": "3.99",
+    "priceCurrency": "CAD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "3.99",
+      "priceCurrency": "CAD",
+      "billingDuration": "P1M",
+      "unitText": "month"
+    },
+    "availability": "https://schema.org/PreOrder",
+    "description": "14-day free trial, then $3.99/month or $39.99/year"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Aamer Seth",
+    "url": "https://lifttracker.ca"
+  },
+  "featureList": [
+    "Automatic PR detection",
+    "Rest timer that starts when you log a set",
+    "Progress charts by muscle group",
+    "200+ exercises",
+    "Calendar workout history",
+    "Edit past workouts",
+    "Share workouts as images",
+    "Big 3 PR tracking (Bench, Squat, Deadlift)",
+    "AI post-workout summary (Apple Intelligence)",
+    "Workout import from PDF or text"
+  ],
+  "screenshot": "https://lifttracker.ca/og-image.jpg",
+  "softwareVersion": "1.0",
+  "releaseNotes": "First public beta. Canada and US first.",
+  "countriesSupported": "CA US",
+  "availableOnDevice": "iPhone"
+}
+</script>
+
+<!-- ── Fonts ────────────────────────────────────────────────────────────── -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--surface:#111118;--border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.13);--white:#fff;--text:rgba(255,255,255,0.90);--text-2:rgba(255,255,255,0.55);--text-3:rgba(255,255,255,0.28);--blue:#2B8EFF;--purple:#7B5FFF;--gold:#FFD700;--green:#15E67A;--grad-hero:linear-gradient(135deg,#2B8EFF,#7B5FFF);--font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--r-lg:32px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .3s}
+nav.scrolled{background:rgba(10,10,15,.88);backdrop-filter:blur(20px);border-bottom:.5px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon{width:34px;height:34px;background:var(--grad-hero);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:13px;color:#fff}
+.nav-logo-name{font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:-.3px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-2);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:40px;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--grad-hero);color:#fff;box-shadow:0 8px 32px rgba(43,142,255,.30)}
+.btn-primary:hover{box-shadow:0 12px 40px rgba(43,142,255,.45)}
+.btn-ghost{background:rgba(255,255,255,.06);border:.5px solid var(--border-strong);color:var(--text)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 40px 100px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(43,142,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(43,142,255,.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb1{width:900px;height:900px;background:radial-gradient(circle,rgba(43,142,255,.20) 0%,transparent 65%);top:-300px;left:50%;transform:translateX(-50%)}
+.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(123,95,255,.18) 0%,transparent 70%);bottom:-100px;right:-150px}
+.orb3{width:400px;height:400px;background:radial-gradient(circle,rgba(43,142,255,.10) 0%,transparent 70%);top:200px;left:-100px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:40px;background:rgba(43,142,255,.10);border:.5px solid rgba(43,142,255,.30);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(100,180,255,.90);margin-bottom:40px;position:relative;z-index:1;animation:fadeDown .8s cubic-bezier(.22,1,.36,1) both}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#2B8EFF;animation:pulse 2s infinite}
+.hero-h1{font-family:var(--font-display);font-size:clamp(64px,10vw,160px);font-weight:800;letter-spacing:-4px;line-height:.88;color:#fff;max-width:1100px;position:relative;z-index:1;animation:fadeUp 1s .15s cubic-bezier(.22,1,.36,1) both}
+.hero-h1 em{font-style:italic;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(16px,2vw,22px);font-weight:400;color:var(--text-2);max-width:560px;line-height:1.65;margin-top:32px;position:relative;z-index:1;animation:fadeUp 1s .3s cubic-bezier(.22,1,.36,1) both}
+.hero-actions{display:flex;align-items:center;gap:14px;margin-top:48px;position:relative;z-index:1;animation:fadeUp 1s .45s cubic-bezier(.22,1,.36,1) both;flex-wrap:wrap;justify-content:center}
+.hero-note{margin-top:20px;font-size:12px;color:var(--text-3);font-weight:500;position:relative;z-index:1;animation:fadeUp 1s .6s cubic-bezier(.22,1,.36,1) both}
+.hero-mockup{position:relative;z-index:1;margin-top:80px;max-width:400px;width:100%;animation:fadeUp 1.2s .5s cubic-bezier(.22,1,.36,1) both}
+
+/* PHONE */
+.phone{width:280px;border-radius:44px;background:var(--surface);border:1.5px solid var(--border-strong);overflow:hidden;margin:0 auto;box-shadow:0 60px 120px rgba(0,0,0,.60),0 0 80px rgba(43,142,255,.15)}
+.notch{width:100px;height:30px;background:#000;border-radius:0 0 20px 20px;margin:0 auto}
+.screen{background:#0d0d1a}
+.app-nav{padding:20px 20px 12px;display:flex;justify-content:space-between;align-items:center}
+.app-nav-t{font-family:var(--font-display);font-size:18px;font-weight:800;color:#fff}
+.app-nav-time{font-size:22px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.app-ex{margin:0 12px 12px;background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
+.app-ex-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.app-ex-name{display:flex;align-items:center;gap:8px}
+.app-ex-dot{width:8px;height:8px;border-radius:50%}
+.app-ex-title{font-size:11px;font-weight:700;color:#fff}
+.app-ex-best{font-size:9px;font-weight:700;color:var(--blue);background:rgba(43,142,255,.12);border-radius:20px;padding:3px 8px}
+.app-row{display:grid;grid-template-columns:28px 1fr 1fr 28px;gap:4px;align-items:center;padding:6px 0;border-bottom:.5px solid rgba(255,255,255,.04)}
+.app-row:last-child{border-bottom:none}
+.app-sn{width:22px;height:22px;border-radius:50%;background:rgba(43,142,255,.18);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:var(--blue)}
+.app-sn.pr{background:var(--gold);color:#000;font-size:10px}
+.app-sv{font-size:10px;font-weight:700;color:#fff}
+.app-sc{width:22px;height:22px;border-radius:50%;background:rgba(21,230,122,.18);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--green)}
+.app-sc.pr{background:rgba(255,215,0,.18);color:var(--gold)}
+.prtag{font-size:7px;font-weight:800;background:var(--gold);color:#000;border-radius:4px;padding:1px 4px;margin-left:2px;vertical-align:middle;display:inline-block}
+.app-rest{margin:0 12px 20px;background:rgba(43,142,255,.08);border:.5px solid rgba(43,142,255,.20);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.app-rest-lbl{font-size:9px;font-weight:700;color:var(--text-2);letter-spacing:.08em}
+.app-rest-t{font-size:22px;font-weight:300;color:var(--blue);font-variant-numeric:tabular-nums;letter-spacing:-1px}
+.app-rest-bar{height:3px;background:rgba(43,142,255,.15);border-radius:2px;margin-top:6px;overflow:hidden}
+.app-rest-fill{height:100%;width:65%;background:var(--grad-hero);border-radius:2px}
+
+/* STATS */
+.stats{border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);padding:40px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap}
+.stat{flex:1;min-width:180px;text-align:center;padding:20px 40px;position:relative}
+.stat+.stat::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:40px;width:.5px;background:var(--border)}
+.stat-n{font-family:var(--font-display);font-size:48px;font-weight:800;letter-spacing:-2px;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stat-l{font-size:13px;font-weight:500;color:var(--text-3);margin-top:8px}
+
+/* MARQUEE */
+.marquee{padding:60px 0;overflow:hidden;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);background:var(--surface)}
+.marquee-track{display:flex;gap:24px;animation:marquee 30s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:15px;font-weight:600;color:var(--text-2);padding:0 12px}
+.mi span{font-size:18px}
+.mdot{width:4px;height:4px;border-radius:50%;background:var(--border-strong)}
+
+/* SECTIONS */
+section{padding:120px 40px}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:24px}
+.section-tag::before{content:'';display:block;width:20px;height:2px;background:var(--blue);border-radius:1px}
+.section-h2{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:800;letter-spacing:-2.5px;line-height:.92;color:#fff;margin-bottom:24px}
+.section-h2 em{font-style:italic;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-sub{font-size:18px;font-weight:400;color:var(--text-2);line-height:1.65;max-width:520px}
+
+/* FEATURES GRID */
+.features{max-width:1200px;margin:0 auto}
+.features-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:80px;gap:40px;flex-wrap:wrap}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.fcard{background:var(--surface);border:.5px solid var(--border);border-radius:var(--r-lg);padding:40px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
+.fcard:hover{border-color:var(--border-strong);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.30)}
+.fcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(43,142,255,.05) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.fcard:hover::before{opacity:1}
+.fcard.hi{background:linear-gradient(135deg,rgba(43,142,255,.12),rgba(123,95,255,.08));border-color:rgba(43,142,255,.25);grid-column:span 2}
+.ficon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:28px}
+.ftitle{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-.5px;color:#fff;margin-bottom:12px}
+.fdesc{font-size:15px;color:var(--text-2);line-height:1.65}
+
+/* SPLIT */
+.split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+.split-vis{display:flex;align-items:center;justify-content:center}
+.ftag{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:40px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:32px}
+.split-h2{font-family:var(--font-display);font-size:clamp(36px,4vw,60px);font-weight:800;letter-spacing:-2px;line-height:.92;color:#fff;margin-bottom:24px}
+.split-desc{font-size:17px;color:var(--text-2);line-height:1.70;margin-bottom:36px}
+.fpt{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.fpt-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.fpt-text{font-size:15px;font-weight:500;color:var(--text-2);line-height:1.5}
+.fpt-text strong{color:var(--text);font-weight:600}
+
+/* PR CARD */
+.pr-card{background:var(--surface);border:.5px solid var(--border-strong);border-radius:var(--r-lg);padding:32px;width:100%;max-width:420px;box-shadow:0 40px 100px rgba(0,0,0,.40),0 0 60px rgba(255,215,0,.08)}
+.pr-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.pr-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:#fff}
+.pr-badge{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,215,0,.12);border:.5px solid rgba(255,215,0,.25);border-radius:20px;padding:6px 12px}
+.pr-row{display:flex;align-items:center;padding:14px 0;border-bottom:.5px solid var(--border);gap:16px}
+.pr-row:last-child{border-bottom:none}
+.pr-set{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.pr-w{flex:1;font-size:16px;font-weight:700;color:#fff}
+.pr-r{font-size:14px;font-weight:500;color:var(--text-2)}
+.pr-inline{font-size:10px;font-weight:800;background:var(--gold);color:#000;padding:3px 8px;border-radius:6px;letter-spacing:.08em}
+.pr-best{margin-top:24px;padding:16px 20px;background:rgba(255,215,0,.08);border:.5px solid rgba(255,215,0,.20);border-radius:14px;display:flex;align-items:center;gap:12px}
+.pr-best-icon{font-size:22px}
+.pr-best-text{font-size:15px;font-weight:700;color:var(--gold)}
+.pr-best-sub{font-size:12px;color:var(--text-3);margin-top:2px}
+
+/* PROGRESS CARD */
+.prog-card{background:var(--surface);border:.5px solid var(--border-strong);border-radius:var(--r-lg);padding:32px;width:100%;max-width:480px;box-shadow:0 40px 100px rgba(0,0,0,.40)}
+.prog-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px}
+.prog-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:#fff}
+.prog-sub{font-size:12px;color:var(--text-3);margin-top:4px}
+.prog-trend{font-size:13px;font-weight:700;color:var(--green)}
+.cbars{display:flex;align-items:flex-end;gap:10px;height:140px}
+.cbar-col{display:flex;flex-direction:column;align-items:center;flex:1;gap:6px}
+.cbar{width:100%;border-radius:6px 6px 0 0;min-height:4px}
+.cbar-lbl{font-size:9px;font-weight:700;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
+.cdivider{height:.5px;background:var(--border);margin:12px 0 20px}
+.mpills{display:flex;flex-wrap:wrap;gap:8px}
+.mpill{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--text-2);padding:4px 10px;background:rgba(255,255,255,.04);border-radius:20px;border:.5px solid var(--border)}
+.mpill-dot{width:6px;height:6px;border-radius:50%}
+
+/* CTA */
+.cta-wrap{position:relative;padding:120px 40px;overflow:hidden}
+.cta-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(43,142,255,.18) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-inner{max-width:800px;margin:0 auto;text-align:center}
+.cta-h2{font-family:var(--font-display);font-size:clamp(48px,7vw,96px);font-weight:800;letter-spacing:-3px;line-height:.90;color:#fff;margin-bottom:28px}
+.cta-h2 em{font-style:italic;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cta-sub{font-size:18px;color:var(--text-2);line-height:1.65;margin:0 auto 56px;max-width:560px}
+.wform{display:flex;gap:12px;max-width:480px;margin:0 auto 20px;flex-wrap:wrap;justify-content:center}
+.winput{flex:1;min-width:200px;padding:16px 24px;background:rgba(255,255,255,.06);border:.5px solid var(--border-strong);border-radius:40px;font-family:var(--font-body);font-size:15px;color:#fff;outline:none;transition:border-color .2s}
+.winput::placeholder{color:var(--text-3)}
+.winput:focus{border-color:rgba(43,142,255,.50)}
+.wbtn{padding:16px 32px;border-radius:40px;background:var(--grad-hero);border:none;font-family:var(--font-body);font-size:15px;font-weight:700;color:#fff;cursor:pointer;box-shadow:0 8px 32px rgba(43,142,255,.35);transition:transform .2s,box-shadow .2s}
+.wbtn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(43,142,255,.50)}
+.cta-note{font-size:12px;color:var(--text-3)}
+.stores{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:40px;flex-wrap:wrap}
+.store{display:flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(255,255,255,.06);border:.5px solid var(--border-strong);border-radius:14px;font-size:13px;font-weight:600;color:var(--text-2);transition:color .2s}
+.store:hover{color:#fff}.store-i{font-size:20px}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--border);padding:60px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;max-width:1200px;margin:0 auto}
+.fl{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text-2)}
+.flinks{display:flex;gap:32px;list-style:none}
+.flinks a{font-size:13px;color:var(--text-3);transition:color .2s}
+.flinks a:hover{color:var(--text-2)}
+.fcopy{font-size:12px;color:var(--text-3)}
+
+/* RESPONSIVE */
+@media(max-width:900px){nav{padding:0 24px}.nav-links{display:none}section{padding:80px 24px}.fgrid{grid-template-columns:1fr}.fcard.hi{grid-column:span 1}.split{grid-template-columns:1fr;gap:48px}.split.rev{direction:ltr}.stats{padding:32px 24px}.stat{min-width:140px;padding:16px 20px}.stat-n{font-size:36px}footer{flex-direction:column}.flinks{gap:20px;flex-wrap:wrap}.cta-wrap{padding:80px 24px}}
+@media(max-width:600px){.hero{padding:120px 24px 80px}.hero-h1{letter-spacing:-2px}.stats{flex-direction:column}.stat+.stat::before{display:none}.wform{flex-direction:column}.winput{min-width:unset;width:100%}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">LT</div>
+    <span class="nav-logo-name">Lift Tracker</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#progress">Progress</a></li>
+    <li><a href="#waitlist">Beta</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="btn btn-ghost" href="#waitlist">Join Waitlist</a>
+    <a class="btn btn-primary" href="#waitlist">Get Beta Access</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="hero-badge"><span class="badge-dot"></span>Beta dropping soon &middot; lifttracker.ca</div>
+  <h1 class="hero-h1">Simple lifting.<br><em>Serious results.</em></h1>
+  <p class="hero-sub">The iPhone workout tracker built around simplicity. Log sets, track PRs automatically, rest timer, and progress charts &mdash; without the subscription bloat.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#waitlist">Join the Waitlist &rarr;</a>
+    <a class="btn btn-ghost" href="#features">See the features</a>
+  </div>
+  <p class="hero-note">No subscription to start. iPhone only. Canada &amp; US first.</p>
+  <div class="hero-mockup">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="app-nav"><div class="app-nav-t">Push Day</div><div class="app-nav-time">2:14</div></div>
+        <div class="app-ex">
+          <div class="app-ex-hdr">
+            <div class="app-ex-name"><div class="app-ex-dot" style="background:#3399FF"></div><div class="app-ex-title">Barbell Bench Press</div></div>
+            <div class="app-ex-best">Top 185 lbs</div>
+          </div>
+          <div class="app-row"><div class="app-sn">1</div><div class="app-sv">175 lbs</div><div class="app-sv">8 reps</div><div class="app-sc">&#10003;</div></div>
+          <div class="app-row"><div class="app-sn">2</div><div class="app-sv">185 lbs</div><div class="app-sv">6 reps</div><div class="app-sc">&#10003;</div></div>
+          <div class="app-row"><div class="app-sn pr">&#127942;</div><div class="app-sv">195 lbs <span class="prtag">PR</span></div><div class="app-sv">4 reps</div><div class="app-sc pr">&#10003;</div></div>
+        </div>
+        <div class="app-rest">
+          <div><div class="app-rest-lbl">REST</div><div class="app-rest-t">1:18</div><div class="app-rest-bar"><div class="app-rest-fill"></div></div></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35);font-weight:600">Skip</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n">200+</div><div class="stat-l">Exercises seeded</div></div>
+  <div class="stat reveal d1"><div class="stat-n">0</div><div class="stat-l">Subscriptions required to start</div></div>
+  <div class="stat reveal d2"><div class="stat-n">1s</div><div class="stat-l">To start your rest timer</div></div>
+  <div class="stat reveal d3"><div class="stat-n">Auto</div><div class="stat-l">PR detection</div></div>
+</div>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="mi"><span>&#127947;</span> Log every set</div><div class="mdot"></div>
+    <div class="mi"><span>&#127942;</span> Auto PR detection</div><div class="mdot"></div>
+    <div class="mi"><span>&#9203;</span> Rest timer, automatic</div><div class="mdot"></div>
+    <div class="mi"><span>&#128200;</span> Progress by muscle group</div><div class="mdot"></div>
+    <div class="mi"><span>&#128197;</span> Calendar history</div><div class="mdot"></div>
+    <div class="mi"><span>&#9999;</span> Edit any past workout</div><div class="mdot"></div>
+    <div class="mi"><span>&#8599;</span> Share in one swipe</div><div class="mdot"></div>
+    <div class="mi"><span>&#128241;</span> iPhone-native</div><div class="mdot"></div>
+    <div class="mi"><span>&#127947;</span> Log every set</div><div class="mdot"></div>
+    <div class="mi"><span>&#127942;</span> Auto PR detection</div><div class="mdot"></div>
+    <div class="mi"><span>&#9203;</span> Rest timer, automatic</div><div class="mdot"></div>
+    <div class="mi"><span>&#128200;</span> Progress by muscle group</div><div class="mdot"></div>
+    <div class="mi"><span>&#128197;</span> Calendar history</div><div class="mdot"></div>
+    <div class="mi"><span>&#9999;</span> Edit any past workout</div><div class="mdot"></div>
+    <div class="mi"><span>&#8599;</span> Share in one swipe</div><div class="mdot"></div>
+    <div class="mi"><span>&#128241;</span> iPhone-native</div><div class="mdot"></div>
+  </div>
+</div>
+
+<section id="features" style="background:var(--bg)">
+  <div class="features">
+    <div class="features-hdr">
+      <div>
+        <div class="section-tag reveal">Built different</div>
+        <h2 class="section-h2 reveal d1">Everything you need.<br><em>Nothing you don't.</em></h2>
+      </div>
+      <p class="section-sub reveal d2">Most workout apps add features until they become unusable. Lift Tracker strips it back to what actually matters for progress.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard hi reveal"><div class="ficon" style="background:rgba(255,215,0,.12)">&#127942;</div><div class="ftitle">PRs that flag themselves</div><div class="fdesc">The moment you beat your best weight, the app knows. No checking history. No doing math mid-set. Automatic, every time.</div></div>
+      <div class="fcard reveal d1"><div class="ficon" style="background:rgba(43,142,255,.12)">&#9203;</div><div class="ftitle">Automatic rest timer</div><div class="fdesc">Starts the second you log a set. Chimes when you're ready. Add time, skip it &mdash; you're in control.</div></div>
+      <div class="fcard reveal d1"><div class="ficon" style="background:rgba(43,142,255,.12)">&#128200;</div><div class="ftitle">Progress charts</div><div class="fdesc">Volume, weight, and PRs broken down by muscle group. See exactly where you're growing and where to push harder.</div></div>
+      <div class="fcard reveal d2"><div class="ficon" style="background:rgba(21,230,122,.12)">&#9999;</div><div class="ftitle">Edit any past workout</div><div class="fdesc">Logged a weight wrong? Go back to any session from your calendar and fix it &mdash; weights, reps, sets, everything.</div></div>
+      <div class="fcard reveal d2"><div class="ficon" style="background:rgba(123,95,255,.12)">&#8599;</div><div class="ftitle">Share your workouts</div><div class="fdesc">Swipe right on any workout to export a clean shareable image. Send to a training partner instantly.</div></div>
+      <div class="fcard reveal d3"><div class="ficon" style="background:rgba(255,63,140,.12)">&#128197;</div><div class="ftitle">Calendar view</div><div class="fdesc">Every session logged in a visual calendar. See your consistency at a glance and never lose a workout.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)" id="progress">
+  <div class="split">
+    <div>
+      <div class="ftag reveal" style="background:rgba(255,215,0,.10);border:.5px solid rgba(255,215,0,.25);color:#FFD700">&#127942; PR Detection</div>
+      <h2 class="split-h2 reveal d1">The app catches<br>your <span style="font-style:italic;background:linear-gradient(135deg,#FFD700,#FF8C1A);-webkit-background-clip:text;-webkit-text-fill-color:transparent">PRs first.</span></h2>
+      <p class="split-desc reveal d2">No more mentally tracking what you hit last time. Lift Tracker knows your best set for every exercise and flags a new record the instant you beat it &mdash; mid-workout, in real time.</p>
+      <div class="fpt reveal d3"><div class="fpt-dot" style="background:var(--gold)"></div><div class="fpt-text"><strong>Automatic, always on.</strong> Every set you log is tracked against your all-time best.</div></div>
+      <div class="fpt reveal d4"><div class="fpt-dot" style="background:var(--gold)"></div><div class="fpt-text"><strong>Visible in the moment.</strong> The PR badge appears on your set row as you complete it.</div></div>
+      <div class="fpt reveal d5"><div class="fpt-dot" style="background:var(--gold)"></div><div class="fpt-text"><strong>Built into progress charts.</strong> See exactly when your strength jumped over time.</div></div>
+    </div>
+    <div class="split-vis reveal d2">
+      <div class="pr-card">
+        <div class="pr-hdr"><div class="pr-title">Barbell Bench Press</div><div class="pr-badge">&#127942; New PR!</div></div>
+        <div class="pr-row"><div class="pr-set" style="background:rgba(43,142,255,.15);color:#3399FF">1</div><div class="pr-w">175 lbs</div><div class="pr-r">8 reps</div><div style="color:var(--green);font-size:16px">&#10003;</div></div>
+        <div class="pr-row"><div class="pr-set" style="background:rgba(43,142,255,.15);color:#3399FF">2</div><div class="pr-w">185 lbs</div><div class="pr-r">6 reps</div><div style="color:var(--green);font-size:16px">&#10003;</div></div>
+        <div class="pr-row"><div class="pr-set" style="background:var(--gold);color:#000;font-size:13px">&#127942;</div><div class="pr-w">195 lbs &nbsp;<span class="pr-inline">PR</span></div><div class="pr-r">4 reps</div><div style="color:var(--gold);font-size:16px">&#10003;</div></div>
+        <div class="pr-best"><div class="pr-best-icon">&#128293;</div><div><div class="pr-best-text">+10 lbs &mdash; New Personal Best</div><div class="pr-best-sub">Previous: 185 lbs &middot; Today</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg)">
+  <div class="split rev">
+    <div>
+      <div class="ftag reveal" style="background:rgba(43,142,255,.10);border:.5px solid rgba(43,142,255,.25);color:#2B8EFF">&#128200; Progress Charts</div>
+      <h2 class="split-h2 reveal d1">Your volume.<br><span style="font-style:italic;background:linear-gradient(135deg,#2B8EFF,#7B5FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Visualized.</span></h2>
+      <p class="split-desc reveal d2">Charts broken down by muscle group so you can see exactly where you're putting in the work &mdash; and exactly where you've been slacking.</p>
+      <div class="fpt reveal d3"><div class="fpt-dot" style="background:var(--blue)"></div><div class="fpt-text"><strong>By muscle group.</strong> Chest, back, legs, shoulders, arms, and core tracked independently.</div></div>
+      <div class="fpt reveal d4"><div class="fpt-dot" style="background:var(--blue)"></div><div class="fpt-text"><strong>Volume trends over time.</strong> See weekly volume trending up or down before you plateau.</div></div>
+      <div class="fpt reveal d5"><div class="fpt-dot" style="background:var(--blue)"></div><div class="fpt-text"><strong>Big 3 PRs.</strong> Dedicated tracking for Bench, Squat, and Deadlift with monthly retest reminders.</div></div>
+    </div>
+    <div class="split-vis reveal d2">
+      <div class="prog-card">
+        <div class="prog-hdr"><div><div class="prog-title">Weekly Volume</div><div class="prog-sub">Last 6 weeks &middot; Total lbs lifted</div></div><div class="prog-trend">&#8593; 12%</div></div>
+        <div class="cbars">
+          <div class="cbar-col"><div class="cbar" style="height:55%;background:linear-gradient(to top,#3399FF,#66B5FF)"></div><div class="cbar-lbl">W1</div></div>
+          <div class="cbar-col"><div class="cbar" style="height:65%;background:linear-gradient(to top,#3399FF,#66B5FF)"></div><div class="cbar-lbl">W2</div></div>
+          <div class="cbar-col"><div class="cbar" style="height:58%;background:linear-gradient(to top,#3399FF,#66B5FF)"></div><div class="cbar-lbl">W3</div></div>
+          <div class="cbar-col"><div class="cbar" style="height:75%;background:linear-gradient(to top,#3399FF,#66B5FF)"></div><div class="cbar-lbl">W4</div></div>
+          <div class="cbar-col"><div class="cbar" style="height:82%;background:linear-gradient(to top,#2B8EFF,#7B5FFF);opacity:.7"></div><div class="cbar-lbl">W5</div></div>
+          <div class="cbar-col"><div class="cbar" style="height:100%;background:linear-gradient(to top,#2B8EFF,#7B5FFF);box-shadow:0 0 20px rgba(43,142,255,.30)"></div><div class="cbar-lbl">W6</div></div>
+        </div>
+        <div class="cdivider"></div>
+        <div class="mpills">
+          <div class="mpill"><div class="mpill-dot" style="background:#3399FF"></div>Chest</div>
+          <div class="mpill"><div class="mpill-dot" style="background:#26E580"></div>Back</div>
+          <div class="mpill"><div class="mpill-dot" style="background:#B34DFF"></div>Legs</div>
+          <div class="mpill"><div class="mpill-dot" style="background:#FF8C1A"></div>Shoulders</div>
+          <div class="mpill"><div class="mpill-dot" style="background:#FF3F8C"></div>Arms</div>
+          <div class="mpill"><div class="mpill-dot" style="background:#FFE01A"></div>Core</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-wrap" id="waitlist">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="section-tag reveal" style="justify-content:center">Beta access</div>
+    <h2 class="cta-h2 reveal d1">Get in<br><em>before launch.</em></h2>
+    <p class="cta-sub reveal d2">Drop your email and we'll send the TestFlight link directly. First come, first served. The waitlist closes when we go live.</p>
+    <div class="reveal d3">
+      <div class="wform">
+        <input class="winput" type="email" placeholder="your@email.com">
+        <button class="wbtn">Join Waitlist &rarr;</button>
+      </div>
+      <p class="cta-note">No spam. Beta access only. Unsubscribe anytime.</p>
+      <div class="stores">
+        <div class="store"><span class="store-i">&#63743;</span>Coming to the App Store</div>
+        <div class="store"><span class="store-i">&#127464;&#127462;</span>Canada &amp; US first</div>
+        <div class="store"><span class="store-i">&#128170;</span>iPhone only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl"><div class="nav-logo-icon" style="width:28px;height:28px;font-size:11px">LT</div>Lift Tracker</div>
+  <ul class="flinks"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Contact</a></li><li><a href="https://instagram.com/LiftTracker.App" target="_blank">Instagram</a></li></ul>
+  <div class="fcopy">&copy; 2026 Lift Tracker. All rights reserved.</div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelector('.wbtn').addEventListener('click',()=>{
+  const inp=document.querySelector('.winput');
+  const email=inp.value.trim();
+  if(!email||!email.includes('@')){inp.style.borderColor='rgba(255,63,140,.50)';inp.focus();return}
+  const btn=document.querySelector('.wbtn');
+  btn.textContent="&#10003; You're on the list!";
+  btn.style.background='linear-gradient(135deg,#15E67A,#2B8EFF)';
+  btn.style.cursor='default';
+  inp.disabled=true;inp.style.opacity='.5';
+});
+</script>
+</body>
+</html>
